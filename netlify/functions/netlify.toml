@@ -21,4 +21,4 @@ to = "/:splat"
 [[headers]]
 for = "/*"               # Set headers for all paths
 [headers.values]
-Cache-Control = "public, max-age=0, must-revalidate"  # Disable caching for dynamic content
+Cache-Control = "views, max-age=0, must-revalidate"  # Disable caching for dynamic content
