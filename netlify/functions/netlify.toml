@@ -1,0 +1,24 @@
+[build]
+command = "npm run prod"  # This should be the command to start your Express.js server in production mode
+publish = "views"       # If you have any static files to publish (e.g., HTML, CSS, client-side JavaScript), specify the directory here
+
+[build.environment]
+NODE_ENV = "production"   # Set the Node.js environment to production
+
+[dev]
+command = "npm run dev"   # Command to start your Express.js server in development mode
+
+[[redirects]]
+from = "/*"              # Redirect all paths to your Express.js server
+to = "/"
+
+[[redirects]]
+force = true
+status = 200
+from = "/server/*"       # Exclude server-side routes from redirects
+to = "/:splat"
+
+[[headers]]
+for = "/*"               # Set headers for all paths
+[headers.values]
+Cache-Control = "public, max-age=0, must-revalidate"  # Disable caching for dynamic content
