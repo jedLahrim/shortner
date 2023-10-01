@@ -14,6 +14,7 @@ mongoose.connect('mongodb+srv://jolix1235:3ui5Bq6KlKvqol5U@cluster0.jxsmrah.mong
 app.set('view engine', 'ejs')
 app.set("views", path.join(__dirname, "views"));
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.get('/', async (req, res) => {
   res.render('index', { shortUrl: null })
 })
