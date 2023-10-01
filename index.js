@@ -20,11 +20,11 @@ app.get('/', async (req, res) => {
 })
 
 app.post('/shortUrl', async (req, res) => {
-    res.render('index', { shortUrl: shortUrl.short })
- const shortUrl =  await ShortUrl.create({ full: req.body.fullUrl,
-    title:'hello from server',
-    image:'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg' })
-  res.render('index', { shortUrl: shortUrl.short })
+    res.render('index', { shortUrl:null })
+ // const shortUrl =  await ShortUrl.create({ full: req.body.fullUrl,
+ //    title:'hello from server',
+ //    image:'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg' })
+ //  res.render('index', { shortUrl: shortUrl.short })
 })
 
 app.get('/:shortUrl', async (req, res) => {
