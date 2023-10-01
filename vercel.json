@@ -8,7 +8,7 @@
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/views/$1" }
+    { "src": "/(.*)", "dest": "views" }
 
   ]
 }
