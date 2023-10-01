@@ -5,16 +5,13 @@ const path = require("path");
 const app = express()
 const port = 3000
 //
-mongoose.connect('mongodb+srv://jolix1235:3ui5Bq6KlKvqol5U@cluster0.jxsmrah.mongodb.net/shortner', {
-  useNewUrlParser: true, useUnifiedTopology: true
-}).then(()=>{
+mongoose.connect('mongodb+srv://jolix1235:3ui5Bq6KlKvqol5U@cluster0.jxsmrah.mongodb.net/shortner').then(()=>{
   console.log(`db connected successfully`)
 })
 
 app.set('view engine', 'ejs')
 app.set("views", path.join(__dirname, "views"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.get('/', async (req, res) => {
   res.render('index', { shortUrl: null })
 })
