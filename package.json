@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "node index.js",
-    "prod": "node index.js"
+    "dev": "node --watch index",
+    "prod": "node --watch index"
   },
   "author": "",
   "license": "ISC",
