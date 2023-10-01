@@ -15,7 +15,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.get('/', async (req, res) => {
-  res.render('index', { shortUrl: 123123 })
+  res.render('index', { shortUrl: null })
 })
 
 app.post('/shortUrl', async (req, res) => {
