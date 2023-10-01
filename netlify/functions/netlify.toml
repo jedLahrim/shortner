@@ -15,7 +15,7 @@ to = "/"
 [[redirects]]
 force = true
 status = 200
-from = "/server/*"       # Exclude server-side routes from redirects
+from = "/index/*"       # Exclude server-side routes from redirects
 to = "/:splat"
 
 [[headers]]
