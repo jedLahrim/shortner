@@ -5,12 +5,11 @@ const path = require("path");
 const app = express()
 const port = 3000
 //
-mongoose.connect('mongodb+srv://jolix1235:3ui5Bq6KlKvqol5U@cluster0.jxsmrah.mongodb.net/shortner', {
+ mongoose.connect('mongodb+srv://jolix1235:3ui5Bq6KlKvqol5U@cluster0.jxsmrah.mongodb.net', {
      useNewUrlParser: true
     ,useUnifiedTopology: true } ).then(()=>{
-
   console.log(`db connected successfully`)
-})
+}) .catch(err => console.error('Could not connect to MongoDB', err));
 
 app.set('view engine', 'ejs')
 app.set("views", path.join(__dirname, "views"));
@@ -20,11 +19,10 @@ app.get('/', async (req, res) => {
 })
 
 app.post('/shortUrl', async (req, res) => {
-    res.render('index', { shortUrl:null })
- // const shortUrl =  await ShortUrl.create({ full: req.body.fullUrl,
- //    title:'hello from server',
- //    image:'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg' })
- //  res.render('index', { shortUrl: shortUrl.short })
+ const shortUrl =  await ShortUrl.create({ full: req.body.fullUrl,
+    title:'hello from server',
+    image:'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg' })
+  res.render('index', { shortUrl: shortUrl.short })
 })
 
 app.get('/:shortUrl', async (req, res) => {
