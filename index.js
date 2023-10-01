@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const ShortUrl = require('./models/shortUrl')
+const path = require("path");
 const app = express()
 //
 mongoose.connect('mongodb+srv://jolix1235:3ui5Bq6KlKvqol5U@cluster0.jxsmrah.mongodb.net/shortner', {
@@ -10,8 +11,9 @@ mongoose.connect('mongodb+srv://jolix1235:3ui5Bq6KlKvqol5U@cluster0.jxsmrah.mong
 })
 
 app.set('view engine', 'ejs')
-app.use(express.urlencoded({ extended: false }))
-
+app.set("views", path.join(__dirname, "views"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.get('/', async (req, res) => {
   res.render('index', { shortUrl: null })
 })
