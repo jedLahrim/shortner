@@ -5,11 +5,6 @@ const path = require("path");
 const app = express()
 const port = 3000
 //
- mongoose.connect('mongodb+srv://jolix1235:3ui5Bq6KlKvqol5U@cluster0.jxsmrah.mongodb.net', {
-     useNewUrlParser: true
-    ,useUnifiedTopology: true } ).then(()=>{
-  console.log(`db connected successfully`)
-}) .catch(err => console.error('Could not connect to MongoDB', err));
 
 app.set('view engine', 'ejs')
 app.set("views", path.join(__dirname, "views"));
@@ -36,6 +31,11 @@ app.get('/:shortUrl', async (req, res) => {
   res.redirect(shortUrl.full)
 })
 
-app.listen(port,()=>{
-  console.log(`server running on port 3000`)
-});
+mongoose.connect('mongodb+srv://jolix1234:jedaziza1235@cluster66.bojvzew.mongodb.net', {
+    useNewUrlParser: true
+    ,useUnifiedTopology: true } ).then(()=>{
+    console.log(`db connected successfully`)
+    app.listen(port,()=>{
+        console.log(`server running on port 3000`)
+    });
+}) .catch(err => console.error('Could not connect to MongoDB', err));
